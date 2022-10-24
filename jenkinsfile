@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     dockerimagename = "itzelmun/prueba-gha2"
-    dockerImage = ""
+    dockerImage = "nginx:1.19-alpine"
   }
 
   agent any
