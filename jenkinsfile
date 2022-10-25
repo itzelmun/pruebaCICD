@@ -2,7 +2,8 @@ pipeline {
 
   environment {
     dockerimagename = "itzelmunguia/pruebacicd"
-    dockerImage = ""
+    dockerCredential = 'docker-hub-itzelmun'
+    dockerImage = ''
   }
 
   agent any
