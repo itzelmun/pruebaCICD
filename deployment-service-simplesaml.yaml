@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prueba-gha2
+  name: pruebaCICD
 spec:
   selector:
    matchLabels:
-    app: prueba-gha2
+    app: pruebaCICD
   replicas: 1
   template:
     metadata:
       labels:
-        app: prueba-gha2
-        role: prueba-gha2
+        app: pruebaCICD
+        role: pruebaCICD
     spec:
       containers:
-        - name: prueba-gha2
+        - name: pruebaCICD
           image: itzelmun/pruebaCICD:latest 
             #imagePullPolicy: Never
           ports:
             - containerPort: 80
-              name: prueba-gha2
+              name: pruebaCICD
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: prueba-gha2
+  name: pruebaCICD
   labels:
-    app: prueba-gha2
+    app: pruebaCICD
 spec:
   selector:
-   app: prueba-gha2
+   app: pruebaCICD
   type: LoadBalancer
   ports:
    - name: http
@@ -38,5 +38,5 @@ spec:
      protocol: TCP
      targetPort: 80
   selector:
-    role: prueba-gha2
+    role: pruebaCICD
 
