@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     dockerimagename = "itzelmun/pruebaCICD"
-    dockerImage = "nginx:1.19-alpine"
+    dockerImage = ""
   }
 
   agent any
