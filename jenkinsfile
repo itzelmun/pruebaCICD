@@ -40,7 +40,7 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kuberhaep")
            sh 'kubectl apply -f deployment-service-simplesaml.yaml'
         }
       }
