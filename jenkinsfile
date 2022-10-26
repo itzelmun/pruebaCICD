@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "itzelmunguia/pruebacicd"
+    #dockerimagename = "itzelmunguia/pruebacicd"
     dockerCredential = 'docker-hub-itzelmun'
     dockerImage = ''
   }
@@ -19,7 +19,7 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-          app = docker.build(dockerimagename)
+          app = docker.build("itzelmunguia/pruebacicd")
         }
       }
     }
