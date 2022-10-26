@@ -41,6 +41,7 @@ pipeline {
       steps {
         script {
           kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubernetes")
+           sh 'kubectl apply -f deployment-service-simplesaml.yaml'
         }
       }
     }
