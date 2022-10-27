@@ -26,7 +26,7 @@ pipeline {
 
     stage('Pushing Image') {
       environment {
-               registryCredential = 'dockerhublogin2'
+               registryCredential = 'dockerhublogin3'
            }
       steps{
         script {
@@ -40,7 +40,7 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kuberhaep")
+          kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubersanchez")
         }
       }
     }
