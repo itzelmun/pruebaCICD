@@ -47,4 +47,12 @@ pipeline {
 
   }
 
+stage ('Test Deployment')
+        {
+             steps
+                {
+                    sh 'kubectl apply -f deployment-service-simplesaml.yaml'
+                }
+        }
+
 }
