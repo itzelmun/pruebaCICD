@@ -11,9 +11,8 @@ pipeline {
   stages {
 
     stage('Checkout Source') {
-      steps {
-	git credentialsId: 'github_prueba', url: 'https://github.com/itzelmun/pruebaCICD.git'
-        #git 'https://github.com/itzelmun/pruebaCICD.git'
+      steps {	
+        git 'https://github.com/itzelmun/pruebaCICD.git'
       }
     }
 
