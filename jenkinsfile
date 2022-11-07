@@ -41,7 +41,7 @@ pipeline {
       steps {
         script {
           kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubersanchez")
-           sh "kubectl rollout history deployment-service-simplesaml.yaml pruebacicd"
+           sh "kubectl rollout history deployment pruebacicd"
         }
       }
     }
