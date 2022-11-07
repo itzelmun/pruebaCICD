@@ -5,14 +5,12 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
   strategy:
     app: pruebacicd
-    type:
-      rollingUpdate:
+    rollingUpdate:
         maxSurge: 1
         maxUnavailable: 1
-        minReadySeconds: 5
     app: pruebacicd
   template:
     metadata:
@@ -22,7 +20,7 @@ spec:
     spec:
       containers:
         - name: pruebacicd
-          image: itzelmunguia/pruebacicd:latest 
+          image: itzelmunguia/pruebacicd:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
