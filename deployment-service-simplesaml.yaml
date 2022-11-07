@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
+      app: pruebacicd
   strategy:
     app: pruebacicd
     rollingUpdate:
         maxSurge: 1
         maxUnavailable: 1
-    app: pruebacicd
   template:
     metadata:
       labels:
