@@ -44,7 +44,6 @@ pipeline {
 }
         script {
 	    try{
-                 kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubernetess")
                  sh "ssh sanchez@148.213.5.79 kubectl apply -f ."
               }catch(error){
                sh "ssh sanchez@148.213.5.79 kubectl create -f ."
