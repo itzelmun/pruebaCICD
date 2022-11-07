@@ -39,9 +39,15 @@ pipeline {
 
     stage('Deploying App to Kubernetes') {
       steps {
+	  sshagent(['kubernetesssh']) {
+          sh "scp -o StringHostKeyChecking=no deployment-service-simplesaml.yaml sanchez@148.213.5.79:/home/sanchez"
+}
         script {
-          kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubersanchez")
-           sh "kubectl rollout history -f deployment-service-simplesaml.yaml"
+	    try{
+                 kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubersanchez")
+                 sh "ssh sanchez@148.213.5.79 kubectl apply -f ."
+              }catch(error){
+               sh "ssh sanchez@148.213.5.79 kubectl create -f ."
         }
       }
     }
