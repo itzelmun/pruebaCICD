@@ -3,10 +3,17 @@ kind: Deployment
 metadata:
   name: pruebacicd
 spec:
-  selector:
-   matchLabels:
-    app: pruebacicd
   replicas: 1
+  selector:
+    matchLabels: ~
+  strategy:
+    app: pruebacicd
+    type:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 1
+        minReadySeconds: 5
+    app: pruebacicd
   template:
     metadata:
       labels:
