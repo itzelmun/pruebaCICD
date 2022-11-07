@@ -5,6 +5,12 @@ metadata:
 spec:
   selector:
    matchLabels:
+  strategy:
+    type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 1
+   minReadySeconds: 5
     app: pruebacicd
   replicas: 1
   template:
@@ -12,11 +18,6 @@ spec:
       labels:
         app: pruebacicd
         role: pruebacicd
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
     spec:
       containers:
         - name: pruebacicd
