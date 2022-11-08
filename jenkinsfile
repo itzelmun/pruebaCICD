@@ -39,20 +39,21 @@ pipeline {
 
     stage('Deploying App to Kubernetes') {
       steps {
+	script {
            kubernetesDeploy(configs: "deployment-service-simplesaml.yaml". kubeconfigId: "kubersanchez")
           }
          }
-        
+        }
    stage('Restarting POD') {
       steps {
           sshagent(['kubernetes']) {
     
         script {
             try{
-                sh 'ssh sanchez@148.213.1.148 microk8s.kubectl rollout restart deployment prueba-gha --kubeconfig=/home/sanchez/.kube/config'
+                sh 'ssh sanchez@148.213.1.148 microk8s.kubectl rollout restart deployment prueba-gha2 --kubeconfig=/home/sanchez/.kube/config'
               }catch(error){
         }
-
+	}
       }
     }
   }
