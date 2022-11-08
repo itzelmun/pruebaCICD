@@ -8,9 +8,9 @@ spec:
     matchLabels:
       app: pruebacicd
   strategy:
-    app: pruebacicd
+    type: RollingUpdate
     rollingUpdate:
-        maxSurge: 1
+        maxSurge: 0
         maxUnavailable: 1
   template:
     metadata:
