@@ -47,10 +47,10 @@ pipeline {
    stage('Restarting POD') {
       steps {
           sshagent(['kubernetessh']) {
-    
+           sh "scp -o StrictHostKeyChecking=no deployment-service-simplesaml.yaml sanchez@148.213.5.79:/home/sanchez"    
         script {
             try{
-                sh 'ssh sanchez@148.213.5.79 microk8s.kubectl rollout restart deployment prueba-gha2 --kubeconfig=/home/sanchez/.kube/config'
+                sh 'ssh sanchez@148.213.5.79 microk8s.kubectl rollout restart deployment pruebacicd --kubeconfig=/home/sanchez/.kube/config'
               }catch(error){
         }
 	}
