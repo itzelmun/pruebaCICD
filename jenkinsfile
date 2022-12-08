@@ -54,7 +54,7 @@ pipeline {
             try{
                 sh 'ssh sanchez@148.213.1.131 microk8s.kubectl rollout restart deployment pruebacicd --kubeconfig=/home/sanchez/.kube/config'
               }catch(error){
-        }
+          }
 	}
       }
     }
