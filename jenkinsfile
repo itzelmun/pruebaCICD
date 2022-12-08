@@ -51,6 +51,7 @@ pipeline {
           sshagent(['sshsanchez']) {
            sh "scp -o StrictHostKeyChecking=no deployment-service-simplesaml.yaml sanchez@148.213.1.131:/home/sanchez"    
         script {
+
             try{
                 sh 'ssh sanchez@148.213.1.131 microk8s.kubectl rollout restart deployment pruebacicd --kubeconfig=/home/sanchez/.kube/config'
               }catch(error){
