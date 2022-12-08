@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     dockerimagename = "itzelmunguia/pruebacicd"
-    dockerCredential = 'docker-hub-itzelmun'
+    dockerCredential = 'dockerpruebacicd'
     dockerImage = ''
   }
 
@@ -26,7 +26,7 @@ pipeline {
 
     stage('Pushing Image') {
       environment {
-               registryCredential = 'dockerhublogin3'
+               registryCredential = 'dockerpruebacicd'
            }
       steps{
         script {
@@ -40,7 +40,7 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
 	script {
-           kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kubersanchez")
+           kubernetesDeploy(configs: "deployment-service-simplesaml.yaml", kubeconfigId: "kuberkey")
           }
          }
         }
